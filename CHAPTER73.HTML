@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRIDE - Premium Sports Footwear | Step Into Greatness</title>
+    <meta name="description" content="Discover premium sports shoes designed for champions. Shop the latest collection of performance footwear with cutting-edge technology.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-black: #1a1a1a;
+            --pure-white: #ffffff;
+            --off-white: #f5f5f5;
+            --accent-red: #ff0000;
+            --accent-red-dark: #cc0000;
+            --text-gray: #888888;
+            --border-gray: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--primary-black);
+            color: var(--pure-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-gray);
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: var(--pure-white);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background: var(--accent-red);
+            animation: expandLine 1s ease 0.5s forwards;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        @keyframes expandLine {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-icon {
+            color: var(--pure-white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            color: var(--accent-red);
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-red);
+            color: var(--pure-white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--pure-white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 5%;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--accent-red);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.6s backwards;
+            border: 2px solid var(--accent-red);
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--pure-white);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .hero-cta:hover {
+            color: var(--accent-red);
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-shoe {
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%) rotate(-15deg);
+            width: 50%;
+            max-width: 700px;
+            opacity: 0.3;
+            animation: floatShoe 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatShoe {
+            0%, 100% {
+                transform: translateY(-50%) rotate(-15deg) translateX(0);
+            }
+            50% {
+                transform: translateY(-50%) rotate(-15deg) translateX(-30px);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-red);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            letter-spacing: 1px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--secondary-black);
+            border: 1px solid var(--border-gray);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 0, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+            border-color: var(--accent-red);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-black);
+            padding: 2rem;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent-red);
+            color: var(--pure-white);
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .product-wishlist:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .product-category {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+        }
+
+        .product-colors {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-option {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid var(--border-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .color-option:hover {
+            transform: scale(1.2);
+            border-color: var(--pure-white);
+        }
+
+        .product-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: transparent;
+            border: 2px solid var(--accent-red);
+            color: var(--accent-red);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+
+        .product-btn:hover {
+            background: var(--accent-red);
+            color: var(--pure-white);
+        }
+
+        /* Limited Edition Section */
+        .limited-edition {
+            background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+            margin: 5rem 0;
+            padding: 5rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .limited-edition::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -25%;
+            width: 150%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .limited-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .limited-text h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .limited-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .limited-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .limited-shoe {
+            position: relative;
+            animation: floatLimited 4s ease-in-out infinite;
+        }
+
+        @keyframes floatLimited {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(-5deg);
+            }
+        }
+
+        .limited-shoe img {
+            width: 100%;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Reviews Section */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: var(--secondary-black);
+            border: 1px solid var(--border-gray);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-5px);
+        }
+
+        .review-stars {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--off-white);
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .review-info h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .review-info p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--secondary-black);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .newsletter h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: var(--primary-black);
+            border: 2px solid var(--border-gray);
+            color: var(--pure-white);
+            font-size: 1rem;
+            font-family: 'Rajdhani', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-red);
+        }
+
+        .newsletter-btn {
+            padding: 1rem 2.5rem;
+            background: var(--accent-red);
+            border: none;
+            color: var(--pure-white);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--accent-red-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-black);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-black);
+            border: 1px solid var(--border-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            transform: translateY(-5px);
+        }
+
+        .footer-column h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-gray);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: var(--secondary-black);
+            border: 1px solid var(--border-gray);
+            padding: 3rem;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid var(--pure-white);
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            transform: rotate(90deg);
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: contain;
+            background: var(--primary-black);
+            padding: 2rem;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: var(--primary-black);
+            padding: 0.5rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--accent-red);
+        }
+
+        .product-detail-info h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .product-detail-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .stars {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+        }
+
+        .rating-count {
+            color: var(--text-gray);
+        }
+
+        .size-selector {
+            margin-bottom: 2rem;
+        }
+
+        .size-selector h4 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .sizes {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .size-option {
+            width: 60px;
+            height: 50px;
+            background: var(--primary-black);
+            border: 2px solid var(--border-gray);
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .size-option:hover, .size-option.selected {
+            border-color: var(--accent-red);
+            background: var(--accent-red);
+        }
+
+        .color-selector {
+            margin-bottom: 2rem;
+        }
+
+        .color-selector h4 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .colors {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .color-choice {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .color-choice:hover, .color-choice.selected {
+            border-color: var(--pure-white);
+            transform: scale(1.15);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 1.2rem;
+            background: var(--accent-red);
+            border: none;
+            color: var(--pure-white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--accent-red-dark);
+        }
+
+        .wishlist-btn {
+            width: 60px;
+            padding: 1.2rem;
+            background: transparent;
+            border: 2px solid var(--border-gray);
+            color: var(--pure-white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .wishlist-btn:hover {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        .product-description {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .product-description h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .product-description p {
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .product-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .limited-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 3%;
+            }
+
+            .section {
+                padding: 3rem 3%;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .limited-features {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-red);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-red-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">STRIDE</a>
+        
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#new-arrivals">New Arrivals</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <span class="nav-icon" id="searchIcon">🔍</span>
+            <span class="nav-icon" id="wishlistIcon">
+                ❤️
+                <span class="cart-count">3</span>
+            </span>
+            <span class="nav-icon" id="cartIcon">
+                🛒
+                <span class="cart-count">2</span>
+            </span>
+            <span class="nav-icon" id="userIcon">👤</span>
+        </div>
+
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">STEP INTO<br>GREATNESS</h1>
+            <p class="hero-subtitle">PREMIUM PERFORMANCE FOOTWEAR</p>
+            <a href="#shop" class="hero-cta">Shop Collection</a>
+        </div>
+        <svg class="hero-shoe" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 150 Q100 100, 200 120 T400 140 L450 160 Q460 180, 440 200 L200 220 Q100 210, 50 180 Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+            <ellipse cx="150" cy="180" rx="30" ry="15" fill="rgba(255,0,0,0.3)"/>
+        </svg>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="section" id="shop">
+        <div class="section-header">
+            <h2 class="section-title">FEATURED COLLECTION</h2>
+            <p class="section-subtitle">Engineered for champions, designed for legends</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" onclick="openProductModal('Air Velocity X', 189.99)">
+                <div class="product-image-container">
+                    <span class="product-badge">NEW</span>
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 100 Q60 60, 120 80 T240 95 L270 105 Q280 120, 265 135 L120 150 Q60 145, 30 125 Z" fill="#ffffff"/>
+                        <path d="M80 90 L100 110 L120 95" stroke="#ff0000" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="90" cy="120" r="8" fill="#ff0000"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Running</p>
+                    <h3 class="product-name">Air Velocity X</h3>
+                    <p class="product-price">$189.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #ff0000;"></div>
+                        <div class="color-option" style="background: #000000;"></div>
+                        <div class="color-option" style="background: #ffffff; border: 1px solid #555;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" onclick="openProductModal('Thunder Strike Pro', 219.99)">
+                <div class="product-image-container">
+                    <span class="product-badge">BEST SELLER</span>
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 95 Q65 55, 125 75 T245 92 L275 102 Q285 117, 268 133 L125 148 Q65 143, 30 123 Z" fill="#000000" stroke="#ff0000" stroke-width="1"/>
+                        <path d="M120 70 L140 90 M140 70 L120 90" stroke="#ff0000" stroke-width="3" stroke-linecap="round"/>
+                        <rect x="160" y="95" width="40" height="8" fill="#ff0000"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Basketball</p>
+                    <h3 class="product-name">Thunder Strike Pro</h3>
+                    <p class="product-price">$219.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #000000;"></div>
+                        <div class="color-option" style="background: #ff0000;"></div>
+                        <div class="color-option" style="background: #0066cc;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" onclick="openProductModal('Phantom Glide', 169.99)">
+                <div class="product-image-container">
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35 105 Q70 70, 130 85 T250 100 L280 110 Q288 123, 273 138 L130 153 Q70 148, 35 130 Z" fill="#f5f5f5"/>
+                        <circle cx="100" cy="110" r="12" fill="#ff0000"/>
+                        <path d="M150 90 Q170 85, 190 95" stroke="#ff0000" stroke-width="3" fill="none"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Training</p>
+                    <h3 class="product-name">Phantom Glide</h3>
+                    <p class="product-price">$169.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #f5f5f5; border: 1px solid #555;"></div>
+                        <div class="color-option" style="background: #333333;"></div>
+                        <div class="color-option" style="background: #ff0000;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" onclick="openProductModal('Apex Runner Elite', 199.99)">
+                <div class="product-image-container">
+                    <span class="product-badge">LIMITED</span>
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 102 Q68 65, 128 82 T248 98 L278 108 Q286 121, 271 136 L128 151 Q68 146, 32 128 Z" fill="#ff0000"/>
+                        <path d="M90 95 L110 85 L130 95 L150 85" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <circle cx="200" cy="105" r="10" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Running</p>
+                    <h3 class="product-name">Apex Runner Elite</h3>
+                    <p class="product-price">$199.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #ff0000;"></div>
+                        <div class="color-option" style="background: #ffffff; border: 1px solid #555;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Edition -->
+    <section class="limited-edition">
+        <div class="limited-content">
+            <div class="limited-text">
+                <h2>VELOCITY PRIME<br>LIMITED EDITION</h2>
+                <p>Experience unprecedented performance with our most advanced shoe technology. Hand-crafted with premium materials and engineered for elite athletes.</p>
+                
+                <div class="limited-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div>
+                            <strong>Reactive Foam</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9;">Maximum energy return</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔥</div>
+                        <div>
+                            <strong>Carbon Fiber</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9;">Ultra-lightweight build</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💨</div>
+                        <div>
+                            <strong>Breathable Mesh</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9;">Enhanced ventilation</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <div>
+                            <strong>Pro Design</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9;">Athlete tested</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="hero-cta" style="background: #ffffff; color: #ff0000; border-color: #ffffff;">Shop Now - $299.99</a>
+            </div>
+            
+            <div class="limited-shoe">
+                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="shoeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#cccccc;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 150 Q90 90, 180 110 T350 140 L390 160 Q405 185, 380 210 L180 235 Q90 220, 50 185 Z" fill="url(#shoeGrad)"/>
+                    <path d="M120 125 L160 145 L200 130 L240 145 L280 130" stroke="#000000" stroke-width="5" stroke-linecap="round" fill="none"/>
+                    <circle cx="140" cy="160" r="15" fill="#000000"/>
+                    <circle cx="220" cy="155" r="15" fill="#000000"/>
+                    <path d="M310 145 L340 155 L340 175 L310 165 Z" fill="#000000"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="section" id="new-arrivals">
+        <div class="section-header">
+            <h2 class="section-title">NEW ARRIVALS</h2>
+            <p class="section-subtitle">Fresh drops from the latest collection</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 5 -->
+            <div class="product-card" onclick="openProductModal('Sprint Master', 179.99)">
+                <div class="product-image-container">
+                    <span class="product-badge">NEW</span>
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M33 103 Q69 68, 129 84 T249 99 L279 109 Q287 122, 272 137 L129 152 Q69 147, 33 129 Z" fill="#0066cc"/>
+                        <rect x="90" y="95" width="150" height="10" fill="#ffffff"/>
+                        <circle cx="110" cy="115" r="8" fill="#ff0000"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Running</p>
+                    <h3 class="product-name">Sprint Master</h3>
+                    <p class="product-price">$179.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #0066cc;"></div>
+                        <div class="color-option" style="background: #000000;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" onclick="openProductModal('Court King', 209.99)">
+                <div class="product-image-container">
+                    <span class="product-badge">NEW</span>
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M31 100 Q67 63, 127 80 T247 96 L277 106 Q285 119, 270 134 L127 149 Q67 144, 31 126 Z" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+                        <path d="M100 85 L140 110 L180 85" stroke="#ff0000" stroke-width="5" fill="none"/>
+                        <circle cx="210" cy="100" r="12" fill="#ff0000"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Basketball</p>
+                    <h3 class="product-name">Court King</h3>
+                    <p class="product-price">$209.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #ffffff; border: 1px solid #555;"></div>
+                        <div class="color-option" style="background: #ff0000;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" onclick="openProductModal('Trail Blazer X2', 189.99)">
+                <div class="product-image-container">
+                    <span class="product-badge">NEW</span>
+                    <span class="product-wishlist">❤️</span>
+                    <svg class="product-image" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M34 104 Q70 69, 130 85 T250 100 L280 110 Q288 123, 273 138 L130 153 Q70 148, 34 130 Z" fill="#2d5016"/>
+                        <path d="M90 90 Q120 100, 150 90 T210 90" stroke="#8b7355" stroke-width="4" fill="none"/>
+                        <rect x="220" y="95" width="30" height="15" fill="#ff0000"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Trail</p>
+                    <h3 class="product-name">Trail Blazer X2</h3>
+                    <p class="product-price">$189.99</p>
+                    <div class="product-colors">
+                        <div class="color-option" style="background: #2d5016;"></div>
+                        <div class="color-option" style="background: #8b7355;"></div>
+                    </div>
+                    <button class="product-btn">Quick View</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">WHAT ATHLETES SAY</h2>
+            <p class="section-subtitle">Real feedback from real champions</p>
+        </div>
+
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"These shoes changed my game completely. The comfort and support during long runs is unmatched. I've beaten my personal best three times since switching to STRIDE!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">MJ</div>
+                    <div class="review-info">
+                        <h4>Marcus Johnson</h4>
+                        <p>Marathon Runner</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Outstanding quality and design. The grip on the court is phenomenal, and they look absolutely incredible. Worth every penny for serious athletes."</p>
+                <div class="review-author">
+                    <div class="review-avatar">SC</div>
+                    <div class="review-info">
+                        <h4>Sarah Chen</h4>
+                        <p>Professional Basketball Player</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"I train 6 days a week and needed shoes that could keep up. STRIDE delivers on durability, comfort, and style. My feet thank me every day!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">DR</div>
+                    <div class="review-info">
+                        <h4>David Rodriguez</h4>
+                        <p>Fitness Coach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>JOIN THE STRIDE FAMILY</h2>
+        <p>Get exclusive access to new drops, special offers, and athlete insights</p>
+        <form class="newsletter-form" onsubmit="return subscribeNewsletter(event)">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>STRIDE</h3>
+                <p>Premium performance footwear engineered for champions. We believe every athlete deserves the best technology to achieve greatness.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶️</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul class="footer-links">
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Running Shoes</a></li>
+                    <li><a href="#">Basketball</a></li>
+                    <li><a href="#">Training</a></li>
+                    <li><a href="#">Limited Edition</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Athletes</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 STRIDE. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductModal()">✕</button>
+            
+            <div class="product-detail">
+                <div class="product-gallery">
+                    <svg class="main-image" id="mainImage" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 100 Q60 60, 120 80 T240 95 L270 105 Q280 120, 265 135 L120 150 Q60 145, 30 125 Z" fill="#ffffff"/>
+                        <path d="M80 90 L100 110 L120 95" stroke="#ff0000" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="90" cy="120" r="8" fill="#ff0000"/>
+                    </svg>
+                    <div class="thumbnail-images">
+                        <svg class="thumbnail active" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 100 Q60 60, 120 80 T240 95 L270 105 Q280 120, 265 135 L120 150 Q60 145, 30 125 Z" fill="#ffffff"/>
+                        </svg>
+                        <svg class="thumbnail" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 100 Q60 60, 120 80 T240 95 L270 105 Q280 120, 265 135 L120 150 Q60 145, 30 125 Z" fill="#ff0000"/>
+                        </svg>
+                        <svg class="thumbnail" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 100 Q60 60, 120 80 T240 95 L270 105 Q280 120, 265 135 L120 150 Q60 145, 30 125 Z" fill="#000000"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h2 id="modalProductName">Air Velocity X</h2>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(247 reviews)</span>
+                    </div>
+                    <div class="product-detail-price" id="modalProductPrice">$189.99</div>
+
+                    <div class="size-selector">
+                        <h4>Select Size (US)</h4>
+                        <div class="sizes">
+                            <div class="size-option">7</div>
+                            <div class="size-option">7.5</div>
+                            <div class="size-option">8</div>
+                            <div class="size-option selected">8.5</div>
+                            <div class="size-option">9</div>
+                            <div class="size-option">9.5</div>
+                            <div class="size-option">10</div>
+                            <div class="size-option">10.5</div>
+                            <div class="size-option">11</div>
+                            <div class="size-option">11.5</div>
+                            <div class="size-option">12</div>
+                        </div>
+                    </div>
+
+                    <div class="color-selector">
+                        <h4>Select Color</h4>
+                        <div class="colors">
+                            <div class="color-choice selected" style="background: #ffffff; border: 2px solid #555;"></div>
+                            <div class="color-choice" style="background: #ff0000;"></div>
+                            <div class="color-choice" style="background: #000000;"></div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                        <button class="wishlist-btn">❤️</button>
+                    </div>
+
+                    <div class="product-description">
+                        <h4>Product Details</h4>
+                        <p>Experience unparalleled performance with cutting-edge technology designed for elite athletes. Engineered with precision for maximum comfort and durability.</p>
+                        <ul class="product-features">
+                            <li>Advanced cushioning system for superior comfort</li>
+                            <li>Breathable mesh upper for optimal ventilation</li>
+                            <li>Reinforced heel counter for enhanced stability</li>
+                            <li>Durable rubber outsole with excellent traction</li>
+                            <li>Lightweight construction for faster performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Product Modal
+        function openProductModal(name, price) {
+            const modal = document.getElementById('productModal');
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductPrice').textContent = `$${price}`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('productModal');
+            if (e.target === modal) {
+                closeProductModal();
+            }
+        });
+
+        // Size Selection
+        document.querySelectorAll('.size-option').forEach(size => {
+            size.addEventListener('click', () => {
+                document.querySelectorAll('.size-option').forEach(s => s.classList.remove('selected'));
+                size.classList.add('selected');
+            });
+        });
+
+        // Color Selection
+        document.querySelectorAll('.color-choice').forEach(color => {
+            color.addEventListener('click', () => {
+                document.querySelectorAll('.color-choice').forEach(c => c.classList.remove('selected'));
+                color.classList.add('selected');
+            });
+        });
+
+        // Thumbnail Selection
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                document.getElementById('mainImage').innerHTML = thumb.innerHTML;
+            });
+        });
+
+        // Add to Cart
+        let cartCount = 2;
+        function addToCart() {
+            cartCount++;
+            document.querySelector('#cartIcon .cart-count').textContent = cartCount;
+            
+            // Show confirmation
+            const btn = document.querySelector('.add-to-cart-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Added to Cart! ✓';
+            btn.style.background = '#00cc00';
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = 'var(--accent-red)';
+            }, 2000);
+        }
+
+        // Newsletter Subscription
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input');
+            const btn = e.target.querySelector('button');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Subscribed! ✓';
+            btn.style.background = '#00cc00';
+            input.value = '';
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = 'var(--accent-red)';
+            }, 3000);
+            
+            return false;
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(255, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe product cards
+        document.querySelectorAll('.product-card, .review-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
